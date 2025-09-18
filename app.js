@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
     doubledSymbols.forEach(symbol => {
       const card = document.createElement("div");
       card.classList.add("card");
-      card.textContent = symbol;
+      card.innerHTML = `
+        <div class="card-inner">
+          <div class="card-face card-front"></div>
+          <div class="card-face card-back">${symbol}</div>
+        </div>
+      `;
       card.dataset.symbol = symbol;
       card.addEventListener("click", flipCard);
       gameBoard.appendChild(card);
